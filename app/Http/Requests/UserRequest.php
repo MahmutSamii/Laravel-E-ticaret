@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 
 class UserRequest extends FormRequest
 {
@@ -25,8 +26,8 @@ class UserRequest extends FormRequest
     {
         $user_id = $this->request->get('user_id');
         return [
-            'name' => 'required|min:3',
-            'email' => "required|unique:App\Models\User,email,$user_id",
+            'name' => 'required|sometimes|min:3',
+            'email' => "required|sometimes|unique:App\Models\User,email,$user_id",
             'password' => 'required|sometimes|string|min:5|confirmed'
         ];
     }
@@ -43,5 +44,14 @@ class UserRequest extends FormRequest
             'password.min' => 'Şifre alanı en az 5 karakterden oluşmalıdır.',
             'password.confirmed' => 'Girilen şifreler birbiriyle uyuşmuyor.'
         ];
+    }
+
+    protected function passedValidation()
+    {
+        if ($this->request->has('password'))
+        {
+            $password = $this->request->get('password');
+            $this->request->set('password',Hash::make($password));
+        }
     }
 }
