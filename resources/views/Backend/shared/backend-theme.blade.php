@@ -9,7 +9,8 @@
 
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
-
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
     <style>
         .bd-placeholder-img {
