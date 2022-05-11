@@ -11,7 +11,7 @@ class Adress extends Model
     use HasFactory,SoftDeletes;
 
     protected $primaryKey = 'address_id';
-
+    protected $table = 'adresses';
     protected $fillable = [
         'address_id' ,
         'user_id',

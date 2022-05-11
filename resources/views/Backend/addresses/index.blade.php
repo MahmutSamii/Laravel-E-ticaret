@@ -1,8 +1,8 @@
 @extends('backend.shared.backend-theme')
-@section('title','Kullanıcı Modülü')
-@section('subtitle','Kullanıcılar')
+@section('title','Adresler Modülü')
+@section('subtitle','Adresler')
 @section('add_new_url',url("/users/$user->user_id/addresses/create"))
-@section('btn_url',url('/users/create'))
+@section('btn_url',url("/users/$user->user_id/addresses/create"))
 @section('btn_label','yeni ekle')
 @section('content')
     <table class="table table-striped table-sm">
@@ -36,13 +36,13 @@
                     <td>
                         <ul class="nav float-start ">
                             <li class="nav-item">
-                                <a href="{{url("/users/$addr->user_id/addresses/$addr->address_id/edit")}}" class="nav-link text-black">
+                                <a href="{{url("/users/$user->user_id/addresses/$addr->address_id/edit")}}" class="nav-link text-black">
                                     <span data-feather="edit"></span>
                                     Güncelle
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{url("/users/$addr->user_id/addresses/$addr->address_id")}}"
+                                <a href="{{url("/users/$user->user_id/addresses/$addr->address_id")}}"
                                    class="nav-link list-item-delete text-black">
                                     <span data-feather="trash-2"></span>
                                     Sil

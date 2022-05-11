@@ -47,7 +47,7 @@ class AdressController extends Controller
      */
     public function store(User $user,AddressRequest $request): \Illuminate\Http\RedirectResponse
     {
-        $addr = new User();
+        $addr = new Adress();
         $data = $this->preapare($request,$addr->getFillable());
         $addr->fill($data);
         $addr->save();
@@ -59,12 +59,14 @@ class AdressController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param User $user
+     * @param Adress $address
      * @return \Illuminate\Contracts\View\View
      */
+
     public function edit(User $user,Adress $address): \Illuminate\Contracts\View\View
     {
-        return view('Backend.addresses.update_form', compact('address'));
+        return view('Backend.addresses.update_form', compact('address','user'));
     }
 
     /**
@@ -89,7 +91,7 @@ class AdressController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\JsonResponse
      */
-    public function destroy(Adress $address): \Illuminate\Http\JsonResponse
+    public function destroy(User $user,Adress $address): \Illuminate\Http\JsonResponse
     {
         $address->delete();
         return response()->json(['message' => 'Done', 'id' => $address->address_id]);
