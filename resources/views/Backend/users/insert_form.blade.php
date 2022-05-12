@@ -7,57 +7,16 @@
     <form action="{{url("/users")}}" method="post">
         @csrf
         <div class="row">
-            <div class="col-lg-6">
-                <label for="name" class="form-label">Ad Soyad</label>
-                <input type="text" class="form-control" id="name" value="{{old('name')}}" name="name"
-                       placeholder="Ad soyad giriniz">
-                @error('name')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-            <div class="col-lg-6">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" value="{{old('email')}}" name="email"
-                       placeholder="Email giriniz">
-                @error('email')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
+            <x-input label="Ad Soyad" placeholder="Ad soyad giriniz" type="text" field="name"/>
+            <x-input label="Email" placeholder="Email giriniz" type="email" field="email"/>
         </div>
         <div class="row">
-            <div class="col-lg-6">
-                <label for="password" class="form-label">Şifre</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="*******">
-                @error('password')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-            <div class="col-lg-6">
-                <label for="password_confirmation" class="form-label">Şifre Tekrar</label>
-                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
-                       placeholder="*******">
-                @error('password')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
+            <x-input label="Şifre" placeholder="*******" type="password" field="password"/>
+            <x-input label="Şifre Tekrar" placeholder="*******" type="password" field="password_confirmation"/>
         </div>
         <div class="row">
-            <div class="col-lg-6">
-                <div class="form-check mt-4">
-                    <input type="checkbox" class="form-check-input" id="is_admin" name="is_admin" value="1">
-                    <label for="is_admin" class="form-check-label">
-                        Yetkili Kullanıcı
-                    </label>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="form-check mt-4">
-                    <input type="checkbox" class="form-check-input" id="is_active" name="is_active" value="1">
-                    <label for="is_active" class="form-check-label">
-                        Aktif
-                    </label>
-                </div>
-            </div>
+            <x-checkbox label="Yetkili Kullanıcı" field="is_admin"/>
+            <x-checkbox label="Aktif" field="is_active"/>
         </div>
         <div class="row">
             <div class="col-12">

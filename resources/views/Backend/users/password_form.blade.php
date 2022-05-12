@@ -7,21 +7,8 @@
     <form action="{{url("/users/$user->user_id/change-password")}}" method="post">
         @csrf
         <div class="row">
-            <div class="col-lg-6">
-                <label for="password" class="form-label">Şifre</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="*******">
-                @error('password')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
-            <div class="col-lg-6">
-                <label for="password_confirmation" class="form-label">Şifre Tekrar</label>
-                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
-                       placeholder="*******">
-                @error('password')
-                <span class="text-danger">{{$message}}</span>
-                @enderror
-            </div>
+            <x-input label="Şifre" placeholder="*******" type="password" field="password"/>
+            <x-input label="Şifre Tekrar" placeholder="*******" type="password" field="password_confirmation"/>
         </div>
         <div class="row mt-3">
             <div class="col-12">
