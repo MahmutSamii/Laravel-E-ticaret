@@ -54,7 +54,7 @@ class UserController extends Controller
     public function store(UserRequest $request): RedirectResponse
     {
         $user = new User();
-        $data = $this->preapare($request,$user->getFillable());
+        $data = $this->prepare($request,$user->getFillable());
         $user->fill($data);
         $user->save();
         return Redirect::to($this->returnUrl);
@@ -81,7 +81,7 @@ class UserController extends Controller
     public function update(UserRequest $request, User $user): RedirectResponse
     {
 
-        $data = $this->preapare($request,$user->getFillable());
+        $data = $this->prepare($request,$user->getFillable());
         $user->fill($data);
         $user->update();
         return Redirect::to($this->returnUrl);

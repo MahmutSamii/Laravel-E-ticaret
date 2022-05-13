@@ -21,7 +21,7 @@ class Controller extends BaseController
      * @return array
      */
 
-    public function preapare($request, $fillables){
+    public function prepare($request, $fillables){
         $data = array();
         foreach ($fillables as $fillable){
             if ($request->has($fillable)){

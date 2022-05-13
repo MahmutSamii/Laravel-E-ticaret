@@ -48,7 +48,7 @@ class AdressController extends Controller
     public function store(User $user,AddressRequest $request): \Illuminate\Http\RedirectResponse
     {
         $addr = new Adress();
-        $data = $this->preapare($request,$addr->getFillable());
+        $data = $this->prepare($request,$addr->getFillable());
         $addr->fill($data);
         $addr->save();
         $this->editReturnUrl($user->user_id);
@@ -78,7 +78,7 @@ class AdressController extends Controller
      */
     public function update(AddressRequest $request, User $user , Adress $address): \Illuminate\Http\RedirectResponse
     {
-        $data = $this->preapare($request,$address->getFillable());
+        $data = $this->prepare($request,$address->getFillable());
         $address->fill($data);
         $address->update();
         $this->editReturnUrl($user->user_id);

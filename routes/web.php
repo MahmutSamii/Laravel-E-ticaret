@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdressController;
+use App\Http\Controllers\Backend\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +23,4 @@ Route::resource('users',UserController::class);
 Route::get('/users/{user}/change-password',[UserController::class,'passwordForm']);
 Route::post('/users/{user}/change-password',[UserController::class,'changePassword']);
 Route::resource('/users/{user}/addresses',AdressController::class);
+Route::resource('/categories',CategoryController::class);
