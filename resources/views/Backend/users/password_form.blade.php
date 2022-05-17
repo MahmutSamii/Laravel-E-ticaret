@@ -7,8 +7,8 @@
     <form action="{{url("/users/$user->user_id/change-password")}}" method="post">
         @csrf
         <div class="row">
-            <x-input label="Şifre" placeholder="*******" type="password" field="password"/>
-            <x-input label="Şifre Tekrar" placeholder="*******" type="password" field="password_confirmation"/>
+            <x-input label="Şifre" placeholder="*******" type="password" field="password" col="col-lg-6"/>
+            <x-input label="Şifre Tekrar" placeholder="*******" type="password" field="password_confirmation" col="col-lg-6"/>
         </div>
         <div class="row mt-3">
             <div class="col-12">

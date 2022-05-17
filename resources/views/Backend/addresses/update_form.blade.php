@@ -10,11 +10,11 @@
         <input type="hidden" name="user_id" value="{{$user->user_id}}">
         <input type="hidden" name="address_id" value="{{$address->address_id}}">
         <div class="row">
-            <x-input label="Şehir" value="{{old('city',$address->city)}}" placeholder="Şehir giriniz" type="text" field="city"/>
-            <x-input label="İlçe" value="{{old('district',$address->district)}}" placeholder="İlçe giriniz" type="text" field="district"/>
+            <x-input label="Şehir" value="{{old('city',$address->city)}}" placeholder="Şehir giriniz" type="text" field="city" col="col-lg-6"/>
+            <x-input label="İlçe" value="{{old('district',$address->district)}}" placeholder="İlçe giriniz" type="text" field="district" col="col-lg-6"/>
         </div>
         <div class="row">
-            <x-input label="Posta kodu" value="{{old('zipcode',$address->zipcode)}}" placeholder="Posta kodunu giriniz" type="text" field="zipcode"/>
+            <x-input label="Posta kodu" value="{{old('zipcode',$address->zipcode)}}" placeholder="Posta kodunu giriniz" type="text" field="zipcode" col="col-lg-6"/>
             <x-checkbox label="Varsayılan Adres" field="is_default" checked="{{$address->is_default == 1}}"/>
         </div>
         <x-textarea label="Açık adres" placeholder="Açık adresinizi giriniz" field="address" value="{{$address->address}}"/>

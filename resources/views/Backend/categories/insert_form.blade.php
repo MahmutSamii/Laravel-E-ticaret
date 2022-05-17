@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="mt-2">
-                    <x-input label="Kategori Adı" placeholder="Kategori adı giriniz" field="name"/>
+                    <x-input label="Kategori Adı" placeholder="Kategori adı giriniz" field="name" col="col-lg-6"/>
                 </div>
             </div>
             <div class="col-lg-6">

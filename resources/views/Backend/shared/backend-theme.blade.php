@@ -68,7 +68,7 @@
                 </div>
             </div>
             <h2>@yield('subtitle')</h2>
-            <div class="table-responsive">
+            <div class="table-responsive" style="overflow:hidden">
                @yield('content')
             </div>
         </main>

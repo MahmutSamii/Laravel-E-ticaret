@@ -1,4 +1,4 @@
-<div class="col-lg-6">
+<div class="{{$col}}">
     <label for="{{$field}}" class="form-label">{{$label}}</label>
     <input type="{{$type}}" class="form-control" id="{{$field}}" value="{{old("$field","$value")}}" name="{{$field}}"
            placeholder="{{$placeholder}}">

@@ -7,12 +7,12 @@
     <form action="{{url("/users")}}" method="post">
         @csrf
         <div class="row">
-            <x-input label="Ad Soyad" placeholder="Ad soyad giriniz" type="text" field="name"/>
-            <x-input label="Email" placeholder="Email giriniz" type="email" field="email"/>
+            <x-input label="Ad Soyad" placeholder="Ad soyad giriniz" type="text" field="name" col="col-lg-6"/>
+            <x-input label="Email" placeholder="Email giriniz" type="email" field="email" col="col-lg-6"/>
         </div>
         <div class="row">
-            <x-input label="Şifre" placeholder="*******" type="password" field="password"/>
-            <x-input label="Şifre Tekrar" placeholder="*******" type="password" field="password_confirmation"/>
+            <x-input label="Şifre" placeholder="*******" type="password" field="password" col="col-lg-6"/>
+            <x-input label="Şifre Tekrar" placeholder="*******" type="password" field="password_confirmation" col="col-lg-6"/>
         </div>
         <div class="row">
             <x-checkbox label="Yetkili Kullanıcı" field="is_admin"/>

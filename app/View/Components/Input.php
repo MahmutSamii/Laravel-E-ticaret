@@ -12,6 +12,7 @@ class Input extends Component
     private $placeholder;
     private $field;
     private $value;
+    private $col;
 
 
     /**
@@ -20,13 +21,15 @@ class Input extends Component
      * @param string $placeholder
      * @param string $field
      * @param string $value
+     * @param string $col
      */
-    public function __construct(string $label,string $placeholder,string $field,string $type='text',string $value=''){
+    public function __construct(string $label,string $placeholder,string $field,string $col,string $type='text',string $value=''){
         $this->type = $type;
         $this->label = $label;
         $this->placeholder = $placeholder;
         $this->field = $field;
         $this->value = $value;
+        $this->col = $col;
     }
     /**
      * Get the view / contents that represent the component.
@@ -40,7 +43,8 @@ class Input extends Component
             'label' => $this->label,
             'placeholder' => $this->placeholder,
             'field' => $this->field,
-            'value' => $this->value
+            'value' => $this->value,
+            'col' => $this->col
         ]);
     }
 }

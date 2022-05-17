@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Str;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->returnUrl = "/categories";
+        $this->returnUrl = "/products";
     }
 
     /**
@@ -24,8 +24,8 @@ class CategoryController extends Controller
      */
     public function index(): View
     {
-        $categories = Category::all();
-        return view("backend.categories.index", ["categories" => $categories]);
+        $products = Product::all()->where('is_active',true);
+        return view("backend.products.index", ["products" => $products]);
     }
 
     /**
@@ -35,7 +35,8 @@ class CategoryController extends Controller
      */
     public function create(): View
     {
-        return view("backend.categories.insert_form");
+        $categories = Category::all();
+        return view("backend.products.insert_form",compact('categories'));
     }
 
     /**
@@ -46,10 +47,10 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request): RedirectResponse
     {
-        $category = new Category();
-        $data = $this->prepare($request, $category->getFillable());
-        $category->fill($data);
-        $category->save();
+        $product = new Product();
+        $data = $this->prepare($request, $product->getFillable());
+        $product->fill($data);
+        $product->save();
 
         return Redirect::to($this->returnUrl);
     }
@@ -57,26 +58,27 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Category $category
+     * @param Product $product
      * @return View
      */
-    public function edit(Category $category): View
+    public function edit(Product $product): View
     {
-        return view("backend.categories.update_form", ["category" => $category]);
+        $categories = Category::all();
+        return view("Backend.products.update_form", compact('product','categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param CategoryRequest $request
-     * @param Category $category
+     * @param Product $product
      * @return RedirectResponse
      */
-    public function update(CategoryRequest $request, Category $category): RedirectResponse
+    public function update(CategoryRequest $request, Product $product): RedirectResponse
     {
-        $data = $this->prepare($request, $category->getFillable());
-        $category->fill($data);
-        $category->save();
+        $data = $this->prepare($request, $product->getFillable());
+        $product->fill($data);
+        $product->save();
 
         return Redirect::to($this->returnUrl);
     }
@@ -84,12 +86,12 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Category $category
+     * @param Product $product
      * @return JsonResponse
      */
-    public function destroy(Category $category): JsonResponse
+    public function destroy(Product $product): JsonResponse
     {
-        $category->delete();
-        return response()->json(["message" => "Done", "id" => $category->category_id]);
+        $product->delete();
+        return response()->json(["message" => "Done", "id" => $product->product_id]);
     }
 }
