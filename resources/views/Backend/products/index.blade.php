@@ -21,7 +21,7 @@
         @if(count($products) > 0)
             @foreach($products as $product)
                 <tr id="{{$product->product_id}}">
-                    <td>{{$product->id}}</td>
+                    <td>{{$product->product_id}}</td>
                     <td>{{$product->name}}</td>
                     <td>{{$product->category->name}}</td>
                     <td>{{$product->price}}</td>

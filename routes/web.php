@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ProductImageController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\AdressController;
@@ -26,3 +27,4 @@ Route::post('/users/{user}/change-password',[UserController::class,'changePasswo
 Route::resource('/users/{user}/addresses',AdressController::class);
 Route::resource('/categories',CategoryController::class);
 Route::resource('/products',ProductController::class);
+Route::resource('/products/{product}/images',ProductImageController::class);
