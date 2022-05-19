@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Cart extends Model
+class Order extends Model
 {
     use HasFactory,SoftDeletes;
 
-    protected $primaryKey = 'card_id';
+    protected $primaryKey = 'order_id';
 
     protected $fillable = [
-      'card_id',
-      'user_id',
-      'code'
+        'order_id',
+        'cart_id',
+        'code'
     ];
 }
