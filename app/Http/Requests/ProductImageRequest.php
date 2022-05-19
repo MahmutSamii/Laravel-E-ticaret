@@ -36,7 +36,7 @@ class ProductImageRequest extends FormRequest
             'product_id.numeric' => 'Bu alan sayısal bir değer olmak zorundadır.',
             'image_url.required' => 'Bu alan zorunludur.',
             'image_url.image' => 'Bu alan resim olmak zorundadır.',
-            'image_url.mimes' => 'Bu alan yalnızca jpg,jpeg ve png uzantılı olmalıdır.',
+            'image_url.mimes' => 'Bu alan yalnızca .jpg, .jpeg ve .png uzantılı olmalıdır.',
         ];
     }
 }

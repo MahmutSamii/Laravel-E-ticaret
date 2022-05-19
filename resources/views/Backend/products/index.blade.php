@@ -48,6 +48,13 @@
                                     Sil
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{url("/products/$product->product_id/images")}}"
+                                   class="nav-link text-black">
+                                    <span data-feather="lock"></span>
+                                    Resimler
+                                </a>
+                            </li>
                         </ul>
                     </td>
                 </tr>
